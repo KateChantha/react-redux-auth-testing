@@ -4,10 +4,16 @@ import { mount } from 'enzyme';
 import CommentBox from 'components/CommentBox';
 import Root from 'Root';
 
+/**
+ * 1. Shows a text area and button
+ * 2. Users can enter input into the text area
+ * 3. When the input is submitted, text area should get emptied
+ */
+
 
 // utilize FullDOM rendering just for practicing
 // this test would be better to implement with Shallow
-
+// wrappered by Root (HOCs to provide redux store)
 let wrapped;
 beforeEach(()=> {
   wrapped = mount(

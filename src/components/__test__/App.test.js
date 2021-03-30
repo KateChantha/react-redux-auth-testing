@@ -5,6 +5,11 @@ import App from 'components/App';
 import CommnetBox from 'components/CommentBox';
 import CommnetList from 'components/CommentList';
 
+/**
+ * 1. Shows the Comment Box inside of it
+ * 2. Shows the Comment List inside of it
+ */
+
 
 // it('shows a comment box', ()=> {
 //   const div = document.createElement('div');
