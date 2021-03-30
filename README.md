@@ -17,10 +17,37 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 #### Write Tests with [enzyme](https://enzymejs.github.io/enzyme/)
 - Note: setupTest.js is a config file to work with enzyme.
 
-- interact wiht enayme in 3 ways
+##### Interact with enayme in 3 ways
 1. Static - rennder the given component and return a plain HTML
 2. Shallow - render just the given component and none of its children
 3. Full DOM - render the component and all of its children and then return an object taht we can use to interact with that component, so we can simulate click event or entering text. This render method let us modify the returning object afterwards.
+
+##### Simulate events in Full DOM render
+https://enzymejs.github.io/enzyme/docs/api/ReactWrapper/simulate.html 
+###### simulate
+```
+ .simulate(event[, mock]) => Self
+```
+- Arguments
+1. event (String): The event name to be simulated
+2. mock ```(Object [optional])```: A mock event object that will be merged with the event object passed to the handlers.
+
+###### force component to update
+```
+ .update() => Self
+```
+Syncs the enzyme component tree snapshot with the react component tree. Useful to run before checking the render output if something external may be updating the state of the component somewhere.<br/>
+
+NOTE: this does not force a re-render. Use wrapper.setProps({}) to force a re-render.
+
+###### Implement using setProps instead of update()
+```
+ .setProps(nextProps[, callback]) => Self
+```
+A method that sets the props of the root component, and re-renders. Useful for when you are wanting to test how the component behaves over time with changing props. Calling this, for instance, will call the componentWillReceiveProps lifecycle method.<br/>
+
+Similar to setState, this method accepts a props object and will merge it in with the already existing props.
+
 
 #### [Absolute Imports](https://create-react-app.dev/docs/importing-a-component/#absolute-imports)
 - You can configure your application to support importing modules using absolute paths. This can be done by configuring a jsconfig.json or tsconfig.json file in the root of your project.
