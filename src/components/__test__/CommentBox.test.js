@@ -29,26 +29,25 @@ it('has a text area and a button', () => {
 // -- in this case is ato mock event.target.value --> { target: { value: 'mock comment' }}
 // force the component to update
 // insert that the textareas value has change
-it('has a text area that users can type in', () => {
+describe('the text area,', () => {
+  beforeEach(() => {
+    // simulate type some input
+    wrapped.find('textarea').simulate('change', { target: { value: 'mock comment' } });
+    // update() does not force a re-render.
+    wrapped.update();
+    // .setProps() will force componet to rerender
+    // wrapped.setProps({value: 'mock comment'})
+  })
   
-  wrapped.find('textarea').simulate('change', { target: { value: 'mock comment' } });
-  // update() does not force a re-render.
-  wrapped.update();
-  
-  // .setProps() will force componet to rerender
-  // wrapped.setProps({value: 'mock comment'})
-  expect(wrapped.find('textarea').prop('value')).toEqual('mock comment')
-})
+  it('has a text area that users can type in', () => {
+    expect(wrapped.find('textarea').prop('value')).toEqual('mock comment')
+  })
 
-it('when form is submitted, text area gets emptied', () => {
-  // simulate type some input
-  wrapped.find('textarea').simulate('change', { target: { value: 'mock comment' } });
-  wrapped.update();
-  // better to add an insertion to check, to avoid a falsy positive test 
-  
-  // simulate form submit
-  wrapped.find('form').simulate('submit');
-  wrapped.update();
-  
-  expect(wrapped.find('textarea').prop('value')).toEqual('')
+  it('when form is submitted, text area gets emptied', () => {
+    // simulate form submit
+    wrapped.find('form').simulate('submit');
+    wrapped.update();
+    
+    expect(wrapped.find('textarea').prop('value')).toEqual('')
+  })
 })
