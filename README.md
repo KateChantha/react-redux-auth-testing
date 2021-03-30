@@ -14,7 +14,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 4. Write a clean up code to unmount the component after the test run
 
 
-#### Write Tests with (enzyme)[https://enzymejs.github.io/enzyme/]
+#### Write Tests with [enzyme](https://enzymejs.github.io/enzyme/)
 - Note: setupTest.js is a config file to work with enzyme.
 
 - interact wiht enayme in 3 ways
@@ -22,5 +22,6 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 2. Shallow - render just the given component and none of its children
 3. Full DOM - render the component and all of its children and then return an object taht we can use to interact with that component, so we can simulate click event or entering text. This render method let us modify the returning object afterwards.
 
-#### (Absolute Imports)[https://create-react-app.dev/docs/importing-a-component/#absolute-imports]
+#### [Absolute Imports](https://create-react-app.dev/docs/importing-a-component/#absolute-imports)
 - You can configure your application to support importing modules using absolute paths. This can be done by configuring a jsconfig.json or tsconfig.json file in the root of your project.
+- We use absolute import path from the 'src' directory.

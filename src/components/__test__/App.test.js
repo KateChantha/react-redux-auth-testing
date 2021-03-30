@@ -1,9 +1,9 @@
 import React from 'react';
 // import ReactDom from 'react-dom';
 import { shallow } from 'enzyme'; // render just the componet but none of its children
-import App from '../App';
-import CommnetBox from '../CommnetBox';
-import CommnetList from '../CommentList';
+import App from 'components/App';
+import CommnetBox from 'components/CommnetBox';
+import CommnetList from 'components/CommentList';
 
 
 // it('shows a comment box', ()=> {
