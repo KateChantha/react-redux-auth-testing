@@ -2,7 +2,7 @@ import React from 'react';
 // import ReactDom from 'react-dom';
 import { shallow } from 'enzyme'; // render just the componet but none of its children
 import App from 'components/App';
-import CommnetBox from 'components/CommnetBox';
+import CommnetBox from 'components/CommentBox';
 import CommnetList from 'components/CommentList';
 
 
@@ -15,14 +15,17 @@ import CommnetList from 'components/CommentList';
 //   ReactDom.unmountComponentAtNode(div)
 // })
 
-it('shows one comment box', ()=> {
-  const wrapped = shallow(<App />);
+let wrapped;
 
+beforeEach(()=> {
+  wrapped = shallow(<App />); 
+})
+
+it('shows one comment box', ()=> {
   // find() returns an array
   expect(wrapped.find(CommnetBox).length).toEqual(1)
 })
 
 it('shows a comment list', ()=> {
-  const wrapped = shallow(<App />);
   expect(wrapped.find(CommnetList).length).toEqual(1)
 })
