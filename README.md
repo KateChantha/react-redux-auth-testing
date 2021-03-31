@@ -7,18 +7,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-#### [Absolute Imports](https://create-react-app.dev/docs/importing-a-component/#absolute-imports)
+## [Absolute Imports](https://create-react-app.dev/docs/importing-a-component/#absolute-imports)
 - You can configure your application to support importing modules using absolute paths. This can be done by configuring a jsconfig.json or tsconfig.json file in the root of your project.
 - We use absolute import path from the 'src' directory.
 
 
-#### Write Tests
+## Write Tests
 1. Look at each individual part of application
 2. Imagine telling a friend what this piece of code does
 3. Write test to verify each part does what you expect
 4. Write a clean up code to unmount the component after the test run
 
-#### Write Tests with [enzyme](https://enzymejs.github.io/enzyme/)
+## Write Tests with [enzyme](https://enzymejs.github.io/enzyme/)
 - Note: setupTest.js is a config file to work with enzyme.
 
 ##### Interact with enayme in 3 ways
@@ -59,7 +59,7 @@ Similar to setState, this method accepts a props object and will merge it in wit
 Returns a CheerioWrapper around the rendered HTML of the single node's subtree. It must be a single-node wrapper.
 
 
-#### Test Redux
+## Test Redux
 ##### Implement reusable HOCs as a Provider componet
 This approach helps to make it easy to maintain 
 - create a Root componet that will work as a HOCs see Root.js
@@ -75,7 +75,7 @@ One way to solve this issue
 - Now, in CommentList.test.js, we can make used of initialState property to mock the comments data
 
 
-### Redux
+## Redux
 #### [Defining mapDispatchToProps As An Object](https://react-redux.js.org/using-react-redux/connect-mapdispatch#defining-mapdispatchtoprops-as-an-object)
 
 ###### in CommentBox.js
