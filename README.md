@@ -7,12 +7,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+#### [Absolute Imports](https://create-react-app.dev/docs/importing-a-component/#absolute-imports)
+- You can configure your application to support importing modules using absolute paths. This can be done by configuring a jsconfig.json or tsconfig.json file in the root of your project.
+- We use absolute import path from the 'src' directory.
+
+
 #### Write Tests
 1. Look at each individual part of application
 2. Imagine telling a friend what this piece of code does
 3. Write test to verify each part does what you expect
 4. Write a clean up code to unmount the component after the test run
-
 
 #### Write Tests with [enzyme](https://enzymejs.github.io/enzyme/)
 - Note: setupTest.js is a config file to work with enzyme.
@@ -71,6 +75,62 @@ One way to solve this issue
 - Now, in CommentList.test.js, we can make used of initialState property to mock the comments data
 
 
-#### [Absolute Imports](https://create-react-app.dev/docs/importing-a-component/#absolute-imports)
-- You can configure your application to support importing modules using absolute paths. This can be done by configuring a jsconfig.json or tsconfig.json file in the root of your project.
-- We use absolute import path from the 'src' directory.
+### Redux
+#### [Defining mapDispatchToProps As An Object](https://react-redux.js.org/using-react-redux/connect-mapdispatch#defining-mapdispatchtoprops-as-an-object)
+
+###### in CommentBox.js
+- are set up with Defining mapDispatchToProps As An Object pattern
+```
+import { connect } from 'react-redux'
+import * as actionCreators from 'actions';
+
+class CommentBox extends Component {
+  state = { comment: '' };
+
+  handleChange = (evt) => {
+   /* */
+  }
+
+  handleSubmit = (evt) => {
+    evt.preventDefault();
+    this.props.saveComment(this.state.comment)
+    this.setState({ comment: ''})
+  }
+
+  render() {
+    return (
+      <div>
+       /* other children */
+        <button onClick={this.props.saveComment}>Fetch Comments</button>
+      </div>
+    );
+  }
+}
+
+export default connect(null, actionCreators)(CommentBox);
+
+```
+- actionCreators is passed in as a second argument in connect()
+- then CommentBox receives as a props
+- equivalent to 
+```
+{ saveComment, saveComment } = this.props
+
+```
+
+Below is a example code snippet from React Redux documentation
+```
+import { increment, decrement, reset } from './counterActions'
+
+const actionCreators = {
+  increment,
+  decrement,
+  reset,
+}
+
+export default connect(mapState, actionCreators)(Counter)
+
+// or
+export default connect(mapState, { increment, decrement, reset })(Counter)
+
+```

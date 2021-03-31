@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import * as actions from 'actions';
+import * as actionCreators from 'actions';
 
 class CommentBox extends Component {
   state = { comment: '' };
@@ -31,9 +31,11 @@ class CommentBox extends Component {
         </form>
         <button onClick={this.props.fetchComments}>Fetch Comments</button>
       </div>
-      
     );
   }
 }
 
-export default connect(null, actions)(CommentBox);
+// actions is a prop object that contains actionCreators 
+// Defining mapDispatchToProps As An Object
+// https://react-redux.js.org/using-react-redux/connect-mapdispatch#defining-mapdispatchtoprops-as-an-object
+export default connect(null, actionCreators)(CommentBox);
