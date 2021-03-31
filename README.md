@@ -48,6 +48,28 @@ A method that sets the props of the root component, and re-renders. Useful for w
 
 Similar to setState, this method accepts a props object and will merge it in with the already existing props.
 
+###### use render() to test text inside component
+```
+  .render() => CheerioWrapper
+```
+Returns a CheerioWrapper around the rendered HTML of the single node's subtree. It must be a single-node wrapper.
+
+
+#### Test Redux
+##### Implement reusable HOCs as a Provider componet
+This approach helps to make it easy to maintain 
+- create a Root componet that will work as a HOCs see Root.js
+- import Root to src/index.js
+- impoet Root to any test file that need to acces a redux store
+
+##### How to get data into redux store
+Testing CommentList componet<br/>
+- How to simulate getting data into redux store, so then, redux store can share the update data to CommentList
+- and we don't want to have to invoke CommentBox in order to test CommentList
+One way to solve this issue
+- By adding initialState as a props in Root.js
+- Now, in CommentList.test.js, we can make used of initialState property to mock the comments data
+
 
 #### [Absolute Imports](https://create-react-app.dev/docs/importing-a-component/#absolute-imports)
 - You can configure your application to support importing modules using absolute paths. This can be done by configuring a jsconfig.json or tsconfig.json file in the root of your project.

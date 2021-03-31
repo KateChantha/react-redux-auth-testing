@@ -3,11 +3,18 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducers from 'reducers'
 
+/**
+ * add initial state as an optional props
+ * set default value on the initialState property
+ * if someone call Root componet without pass in initialState, the initial state value will be an default value of an empty object
+ * To add initialState as a props will help working with writing a test
+ */
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export default props => {
+export default ({ children, initialState = {}}) => {
   return (
-    <Provider store={createStore(reducers, {})} >
-      { props.children}
+    <Provider store={createStore(reducers, initialState)} >
+      { children }
     </Provider>
   )
 } 
