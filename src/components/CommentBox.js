@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import * as actionCreators from 'actions';
+import RequireAuth from 'components/RequireAuth';
 
 class CommentBox extends Component {
   state = { comment: '' };
@@ -39,4 +40,4 @@ class CommentBox extends Component {
 // actions is a prop object that contains actionCreators 
 // Defining mapDispatchToProps As An Object
 // https://react-redux.js.org/using-react-redux/connect-mapdispatch#defining-mapdispatchtoprops-as-an-object
-export default connect(null, actionCreators)(CommentBox);
+export default connect(null, actionCreators)(RequireAuth(CommentBox));
