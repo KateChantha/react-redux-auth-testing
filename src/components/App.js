@@ -4,13 +4,16 @@ import { connect } from 'react-redux';
 
 import CommentBox from 'components/CommentBox'
 import CommentList from 'components/CommentList'
+import * as actions from 'actions'
 
 // TODO: refactor structure as commented below
 class App extends Component {
   renderButton() {
-    return this.props.auth
-      ? (<button>Sign Out</button>)
-      : (<button>Sign In</button>)
+    return (
+        <button onClick={() => this.props.changeAuth(!this.props.auth)}>
+            {this.props.auth ? "Sign Out" : "Sign In"}
+        </button>
+    );  
   }
 
   renderHeader() {
@@ -44,7 +47,7 @@ function mapStateToProps(state) {
   return { auth: state.auth }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, actions)(App);
 
 
 // TODO: refactor to this structure
