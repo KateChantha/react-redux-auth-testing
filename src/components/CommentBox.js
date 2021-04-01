@@ -5,6 +5,21 @@ import * as actionCreators from 'actions';
 class CommentBox extends Component {
   state = { comment: '' };
 
+  /** Component Live Cycle **/
+  componentDidMount() {
+    this.shouldNavigateAway();
+  }
+
+  componentDidUpdate() {
+    this.shouldNavigateAway();
+  }
+
+  /** Helper Function **/
+  shouldNavigateAway() {
+    if (!this.props.auth) this.props.history.push('/')
+  }
+
+  /** Event Handler **/
   handleChange = (evt) => {
     this.setState({comment: evt.target.value})
   }
@@ -35,7 +50,10 @@ class CommentBox extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return { auth: state.auth }
+}
 // actions is a prop object that contains actionCreators 
 // Defining mapDispatchToProps As An Object
 // https://react-redux.js.org/using-react-redux/connect-mapdispatch#defining-mapdispatchtoprops-as-an-object
-export default connect(null, actionCreators)(CommentBox);
+export default connect(mapStateToProps, actionCreators)(CommentBox);

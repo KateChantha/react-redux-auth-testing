@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import CommentBox from 'components/CommentBox'
 import CommentList from 'components/CommentList'
-import * as actions from 'actions'
+import * as actionCreators from 'actions'
 
 // TODO: refactor structure as commented below
 class App extends Component {
@@ -47,7 +47,7 @@ function mapStateToProps(state) {
   return { auth: state.auth }
 }
 
-export default connect(mapStateToProps, actions)(App);
+export default connect(mapStateToProps, actionCreators)(App);
 
 
 // TODO: refactor to this structure

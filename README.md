@@ -139,3 +139,9 @@ export default connect(mapState, actionCreators)(Counter)
 export default connect(mapState, { increment, decrement, reset })(Counter)
 
 ```
+
+## Steps of Building a HOC
+1. Write the logic you want to reuse in a component
+2. Create A HOC file and add the HOC scaffold
+3. Move the reusable logic into the HOC
+4. Pass props/config/behavioir through to chlid component
