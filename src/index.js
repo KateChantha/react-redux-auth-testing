@@ -13,3 +13,11 @@ ReactDom.render(
   </Root>,
   document.querySelector('#root')
 );
+
+// TODO: refactor to this structure
+// ReactDom.render(
+//   <Root>
+//     <App />
+//   </Root>,
+//   document.querySelector('#root')
+// );
