@@ -64,9 +64,9 @@ Returns a CheerioWrapper around the rendered HTML of the single node's subtree. 
 This approach helps to make it easy to maintain 
 - create a Root componet that will work as a HOCs see Root.js
 - import Root to src/index.js
-- impoet Root to any test file that need to acces a redux store
+- import Root to any test file that need to acces a redux store
 
-##### How to get data into redux store
+##### ROADBLOCK: How to get data into redux store
 Testing CommentList componet<br/>
 - How to simulate getting data into redux store, so then, redux store can share the update data to CommentList
 - and we don't want to have to invoke CommentBox in order to test CommentList
@@ -74,6 +74,11 @@ One way to solve this issue
 - By adding initialState as a props in Root.js
 - Now, in CommentList.test.js, we can make used of initialState property to mock the comments data
 
+## Integration Tests
+##### ROADBLOCK: axios is not able to make a network request 
+- due to axios the is in side JSDom not in the real browser.
+We can solve this issue by using 'moxios' to fake out a request that to trick axios that the request is successfully be issued.
+- import moxios in src/__tests__/integration.test.js
 
 ## Redux
 #### [Defining mapDispatchToProps As An Object](https://react-redux.js.org/using-react-redux/connect-mapdispatch#defining-mapdispatchtoprops-as-an-object)

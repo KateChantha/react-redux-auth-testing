@@ -28,10 +28,10 @@ afterEach(() => {
   wrapped.unmount();
 })
 
-it('has a text area and a button', () => {
+it('has a text area and two buttons', () => {
   // console.log(wrapped.find('textarea').length)
   expect(wrapped.find('textarea').length).toEqual(1)
-  expect(wrapped.find('button').length).toEqual(1)
+  expect(wrapped.find('button').length).toEqual(2)
 })
 
 // find the textarea element

@@ -10,6 +10,7 @@ export function saveComment(comment) {
 
 export function fetchComments() {
   const response = axios.get('https://jsonplaceholder.typicode.com/comments')
+  // response object is going to be formatted inside the reducer(/reducers/comments.js)
   return {
     type: FETCH_COMMENTS,
     payload: response
