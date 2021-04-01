@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# React Redux and Testing
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -21,7 +21,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ## Write Tests with [enzyme](https://enzymejs.github.io/enzyme/)
 - Note: setupTest.js is a config file to work with enzyme.
 
-##### Interact with enayme in 3 ways
+##### Interact with enzyme in 3 ways
 1. Static - rennder the given component and return a plain HTML
 2. Shallow - render just the given component and none of its children
 3. Full DOM - render the component and all of its children and then return an object taht we can use to interact with that component, so we can simulate click event or entering text. This render method let us modify the returning object afterwards.
